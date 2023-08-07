@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% url 'films:film-list' as list_all %}
+
+<div class="container d-flex justify-content-center mt-5" style="width: 50%;">
+    <div class="col mt-5 text-center">
+        <h1 class="mb-5">Delete Film</h1>
+
+        <p class="h5">Are you sure you want to delete the Film:</p>
+        <h3 class="my-5">{{ film.title }}</h3>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {% comment %} <input type="submit" value="Confirm">
+            {% endcomment %}
+            <div class="d-flex justify-content-center" style="height: 60px; width: 400px; margin-left:250px ; margin-right: 150px;">
+                <input type="submit" class="btn btn-danger btn-lg flex-fill mr-3" style="margin-right: 20px;" value="Confirm">
+                <a href="{% url 'films:film-list' %}" class="btn btn-primary btn-lg flex-fill" style="margin-left: 20px;">Cancel</a>
+            </div>
+            
+            
+        </form>
+    </div>
+</div>
+
+{% endblock %}
